@@ -70,8 +70,8 @@ Solution 1 would require that you first partition your S3 objects into a separat
 For example, imagine your transaction CSV files have, in aggregate, three different schemas. Your S3 structure would look like this: 
 
 * `s3://bucket/raw/csv/transactions/v1/*` -> maps to Glue catalog table `transactions_v1`
-* `s3://bucket/raw/csv/transactions/v1/*` -> maps to Glue catalog table `transactions_v2`
-* `s3://bucket/raw/csv/transactions/v1/*` -> maps to Glue catalog table `transactions_v3`
+* `s3://bucket/raw/csv/transactions/v2/*` -> maps to Glue catalog table `transactions_v2`
+* `s3://bucket/raw/csv/transactions/v3/*` -> maps to Glue catalog table `transactions_v3`
 
 Using SQL as an example, we would then `UNION` the tables together. Of course, we would have to do some data cleansing/manipulation to handle the fact that the schemas don't match. For example, if one table was missing `cust_id`, we would use a `SELECT null as cust_id, ...` for that table; if two tables had the same column name but different formats, we would have to typecast them all to the same type, as well.
 
