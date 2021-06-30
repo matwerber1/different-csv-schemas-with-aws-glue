@@ -1,5 +1,4 @@
-# Project
-
+# How to handle different CSV schemas for a single logical table with AWS Glue 
 
 ## The Problem - CSVs with different schemas
 
